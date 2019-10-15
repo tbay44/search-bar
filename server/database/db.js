@@ -19,7 +19,6 @@ const client = new Client({
 
 client.connect()
 client.query('SELECT * FROM product WHERE id = 1;', (err, res) => {
-  console.log(res.rows)
 })
 
 function getAllProducts (callback) {

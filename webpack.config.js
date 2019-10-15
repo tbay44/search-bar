@@ -26,7 +26,7 @@ module.exports = {
     },
     devServer:{
         proxy: {
-            '/api' : 'http://localhost:3000'
+            '/api' : 'http://localhost:3009'
         }
     },
     plugins: [
