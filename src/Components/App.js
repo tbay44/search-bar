@@ -1,6 +1,6 @@
 import React from "react";
 import Product from '../Components/Product'
-import { fetchProducts } from '../Actions/productActions';
+import { fetchProducts, addPersonal } from '../Actions/productActions';
 import { connect } from 'react-redux';
 
 
@@ -8,7 +8,8 @@ import { connect } from 'react-redux';
 class App extends React.Component {
     
     componentDidMount() {
-        this.props.fetchProducts()
+        this.props.fetchProducts(10)
+        this.props.addPersonal(10)
     }
     render(){
     return (
@@ -33,9 +34,14 @@ class App extends React.Component {
 
 
 const mapStateToProps = state => ({
-  posts: state.posts.items
+  posts: state.posts.items,
+  personalCarousel: state.posts.item
 })
 
 
+const mapDispatchToProps = (dispatch) => ({
+  fetchProducts: (inputId) => dispatch(fetchProducts(inputId)), 
+  addPersonal: (inputId) => dispatch(addPersonal(inputId))
+})
 
-  export default connect(mapStateToProps, {fetchProducts})(App);
+  export default connect(mapStateToProps, mapDispatchToProps)(App);
