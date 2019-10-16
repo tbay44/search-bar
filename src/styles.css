@@ -1,0 +1,37 @@
+body{
+    text-align: center;
+}
+.Carousel-Container{
+    display: grid;
+    grid-template-columns: .2fr 5fr .2fr
+}
+
+.Carousel {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.Carousel-Product {
+    display: grid;
+    grid-template-rows: .1fr .05fr .05fr .25fr
+}
+
+.Carousel-Product img{
+    margin: auto;
+    height: 100px;
+    width: 100px
+}
+
+.Carousel-Product p{
+    text-align: left;
+    font-size: 10px;
+}
+
+.Carousel-Container button{              
+    margin: auto;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    align-content: center;
+}

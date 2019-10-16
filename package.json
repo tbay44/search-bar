@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon server/index.js",
-    "start": "webpack --mode development && nodemon server/index.js",
+    "start": "webpack --mode development && nodemon server/index.js --watch",
     "dev": "webpack-dev-server --open --hot --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack -d --watch"
   },
   "author": "Evan",
   "license": "MIT",
