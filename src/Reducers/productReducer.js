@@ -1,18 +1,31 @@
 import {FETCH_PRODUCTS, MAIN_PRODUCT} from '../Actions/types';
-
 const initialState = {
-    items : [],
+    pageOne : [],
+    pageTwo : [],
+    pageThree: [],
     item : {}
 }
 
 export default function (state = initialState, action){
-    console.log(initialState, action)
     switch(action.type) {
         case FETCH_PRODUCTS:
-            console.log('further')
+            let pageOne = []
+            let pageTwo = []
+            let pageThree = []
+            for(var i = 0; i < action.payload.length; i++){
+                if(i < 5){
+                    pageOne = pageOne.concat(action.payload[i]);
+                }else if(i < 10){
+                    pageTwo = pageTwo.concat(action.payload[i]);
+                }else if(i < 15){
+                    pageThree = pageThree.concat(action.payload[i]);
+                }
+            }
             return {
                 ...state,
-                items: action.payload
+                pageOne: pageOne,
+                pageTwo: pageTwo,
+                pageThree: pageThree
             }
         default:
             return state;
