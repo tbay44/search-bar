@@ -19,11 +19,10 @@ const client = new Client({
 
 client.connect()
 client.query('SELECT * FROM product WHERE id = 1;', (err, res) => {
-  console.log(res.rows)
 })
 
-function getAllProducts (callback) {
-  let queryString = "SELECT * FROM product;"
+function getRangeProducts (lowerId, upperId, callback) {
+  let queryString = `SELECT * FROM product WHERE id BETWEEN ${lowerId} AND ${upperId}`
   client.query(queryString, (error, products) => {
     if(error) {
       callback(error)
@@ -34,5 +33,5 @@ function getAllProducts (callback) {
 }
 
 module.exports = {
-  getAllProducts
+  getRangeProducts
 }
