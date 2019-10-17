@@ -1,6 +1,6 @@
 import React from "react";
 import Product from '../Components/Product'
-import { fetchProducts, addPersonal } from '../Actions/productActions';
+import { fetchProducts } from '../Actions/productsActions';
 import { incrementButton, decrementButton, initializeButton } from '../Actions/carouselActions';
 import { connect } from 'react-redux';
 
@@ -9,9 +9,34 @@ import { connect } from 'react-redux';
 class App extends React.Component {
     
     componentDidMount() {
-        this.props.fetchProducts(50)
-        this.props.addPersonal(50)
+
+        window.uniqueId = 0
+        this.props.fetchProducts(window.uniqueId)
         this.props.initializeButton()
+        
+        window.addEventListener("uniqueId", (event) => {
+          this.props.fetchProducts(window.uniqueId)
+          this.props.initializeButton()
+        }
+        )
+      }
+    
+
+    formatPrice(string) {
+      let formatString = string.split('');
+      formatString.shift();
+      let decimal = formatString.splice(formatString.length-3,formatString.length)
+      formatString.reverse()
+      for (var i = 0; i < formatString.length; i++){
+        if(i % 4 === 0){
+          formatString.splice(i, 0, ',')
+        }
+      }
+      formatString.shift();
+      formatString.push('$');
+      decimal.reverse()
+      formatString = decimal.concat(formatString)
+      return formatString.reverse().join('');
     }
 
     carouselPage () {
@@ -29,10 +54,12 @@ class App extends React.Component {
       return carouselProducts.map(item => {
         return <Product
           key={item.id}
+          product_id={item.id}
           product_name={item.product_name}
-          price={item.price}
+          price={this.formatPrice(item.price)}
           seller={item.seller}
           prime_pic={item.prime_pic}
+          shipping={item.shipping}
           />;
     })
 
@@ -41,17 +68,17 @@ class App extends React.Component {
     render(){
     return (
         <React.Fragment>
-          <h1> The force is with me and my friends.</h1>
-          <div className="Carousel-Container">
-          <button className="back-bttn" onClick={
-            (event) => this.props.decrementButton(this.props.sponserCarouselPageNum)
-          }>Back</button> 
-          <div className="Carousel">
-          {this.carouselPage()}
-        </div>
-        <button className="forward-bttn" onClick={
-          (event) => this.props.incrementButton(this.props.sponserCarouselPageNum)
-        }>Forward</button>
+          <h5 className="Carousel-Page"> Related sponsored items <span>{this.props.sponserCarouselPageNum}/3</span></h5>
+        <div className="Carousel-Container">
+            <button className="back-bttn" onClick={
+              (event) => this.props.decrementButton(this.props.sponserCarouselPageNum)
+           }>Back</button> 
+            <div className="Carousel">
+              {this.carouselPage()}
+            </div>
+            <button className="forward-bttn" onClick={
+              (event) => this.props.incrementButton(this.props.sponserCarouselPageNum)
+            }>Forward</button>
         </div>
         </React.Fragment>
       
@@ -65,14 +92,13 @@ const mapStateToProps = state => ({
   pageOne: state.posts.pageOne,
   pageTwo: state.posts.pageTwo,
   pageThree: state.posts.pageThree,
-  personalCarousel: state.personalCarousel.items,
-  sponserCarouselPageNum: state.sponserCarouselPageNum.page
+  sponserCarouselPageNum: state.sponserCarouselPageNum.page,
+  currentProductId: state.uniqueId.id
 })
 
 
 const mapDispatchToProps = (dispatch) => ({
   fetchProducts: (inputId) => dispatch(fetchProducts(inputId)), 
-  addPersonal: (inputId) => dispatch(addPersonal(inputId)),
   incrementButton: (inputId) => dispatch(incrementButton(inputId)),
   decrementButton: (inputId) => dispatch(decrementButton(inputId)),
   initializeButton: () => dispatch(initializeButton())

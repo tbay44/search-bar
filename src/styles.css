@@ -1,9 +1,31 @@
 body{
     text-align: center;
+    margin: 0 auto;
+
 }
+body h5{
+    text-align: left;
+}
+
+.Carousel-Page{
+    font-size: 17px;
+    margin: 0px;
+    padding: 24px 16px 0px;
+    background-color: white;
+    color: black;
+    font-weight: normal;
+
+}
+
+.Carousel-Page span{
+    color: gray;
+}
+
 .Carousel-Container{
     display: grid;
-    grid-template-columns: .2fr 5fr .2fr
+    grid-template-columns: .2fr 5fr .2fr;
+    background-color: white;
+    color: black
 }
 
 .Carousel {
@@ -13,19 +35,30 @@ body{
 }
 
 .Carousel-Product {
+    padding: 7px;
     display: grid;
-    grid-template-rows: .1fr .05fr .05fr .25fr
+    grid-template-rows: .1fr .05fr .05fr .25fr;
+    font-size: 14px;
+    text-align: left;
 }
+
 
 .Carousel-Product img{
     margin: auto;
-    height: 100px;
-    width: 100px
+    height: 180px;
+    width: 180px
 }
 
-.Carousel-Product p{
-    text-align: left;
-    font-size: 10px;
+
+.Carousel-Price {
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0px 10px 0px 0px
+}
+
+.Carousel-Shipping {
+    margin: 0px;
+    color: gray;
 }
 
 .Carousel-Container button{              

@@ -1,33 +1,17 @@
-import {FETCH_PRODUCTS, MAIN_PRODUCT} from '../Actions/types';
+import { UPDATE_UNIQUE_ID } from '../Actions/types';
+
 const initialState = {
-    pageOne : [],
-    pageTwo : [],
-    pageThree: [],
-    item : {}
+    id: 0
 }
 
-export default function (state = initialState, action){
-    switch(action.type) {
-        case FETCH_PRODUCTS:
-            let pageOne = []
-            let pageTwo = []
-            let pageThree = []
-            for(var i = 0; i < action.payload.length; i++){
-                if(i < 5){
-                    pageOne = pageOne.concat(action.payload[i]);
-                }else if(i < 10){
-                    pageTwo = pageTwo.concat(action.payload[i]);
-                }else if(i < 15){
-                    pageThree = pageThree.concat(action.payload[i]);
-                }
-            }
+export default function ( state = initialState, action){
+    switch(action.type){
+        case UPDATE_UNIQUE_ID:
             return {
                 ...state,
-                pageOne: pageOne,
-                pageTwo: pageTwo,
-                pageThree: pageThree
+                id: action.payload
             }
-        default:
-            return state;
+        default: 
+        return state;
     }
 }

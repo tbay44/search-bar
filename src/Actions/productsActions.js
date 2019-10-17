@@ -1,4 +1,4 @@
-import {FETCH_PRODUCTS, ADD_PRODUCT} from './types';
+import {FETCH_PRODUCTS} from './types';
 
     export function fetchProducts(inputId){ 
         return function (dispatch){
@@ -10,7 +10,6 @@ import {FETCH_PRODUCTS, ADD_PRODUCT} from './types';
                 })
             })
             .then(res => {
-                console.log(res)
             return res.json()})
             .then(posts =>
                 dispatch({
@@ -21,17 +20,17 @@ import {FETCH_PRODUCTS, ADD_PRODUCT} from './types';
         }
     };
 
-    export function addPersonal(inputId){ 
-        return function (dispatch){
-            return fetch('/api/add?id='+inputId)
-            .then(res => {
-                console.log(res)
-            return res.json()})
-            .then(products =>
-                dispatch({
-                    type: ADD_PRODUCT,
-                    payload: products
-                })
-            );
-        }
-    };
+    // export function addPersonal(inputId, currentState = []){ 
+    //     return function (dispatch){
+    //         return fetch('/api/add?id='+inputId)
+    //         .then(res => {
+    //         return res.json()})
+    //         .then(products =>{
+    //             currentState = currentState.concat(products)
+    //             dispatch({
+    //                 type: ADD_PRODUCT,
+    //                 payload: currentState
+    //             })
+    //         });
+    //     }
+    // };

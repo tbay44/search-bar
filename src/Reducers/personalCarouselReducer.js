@@ -1,12 +1,10 @@
 import {ADD_PRODUCT} from '../Actions/types';
 
 const initialState = {
-    items : [],
-    item : {}
+    items : []
 }
 
 export default function (state = initialState, action){
-    console.log(initialState, action)
     switch(action.type) {
         case ADD_PRODUCT:
             return {
