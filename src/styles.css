@@ -1,6 +1,6 @@
 body{
     text-align: center;
-    margin: 0 auto;
+    margin: 0 90px;
 
 }
 body h5{
@@ -22,10 +22,46 @@ body h5{
 }
 
 .Carousel-Container{
+    position: relative;
     display: grid;
-    grid-template-columns: .2fr 5fr .2fr;
+    grid-template-columns: 5fr;
     background-color: white;
     color: black
+}
+
+
+.forward-bttn{
+    padding-right: -35px;
+    right: 0;              
+    background-color: #fff;
+    cursor: pointer;
+    height:70px;
+    width:35px;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 0 90px 90px 0;
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    opacity: .9;
+} 
+
+.back-bttn{
+    padding-left: -35px;
+    left: 0px;              
+    background-color: #fff;
+    cursor: pointer;
+    height:70px;
+    width:35px;
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 90px 0 0 90px;
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    opacity: .9;
+}
+
+.button-chevron{
+    font-size: 20px;
 }
 
 .Carousel {
@@ -61,10 +97,3 @@ body h5{
     color: gray;
 }
 
-.Carousel-Container button{              
-    margin: auto;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    align-content: center;
-}

@@ -3,6 +3,8 @@ import Product from '../Components/Product'
 import { fetchProducts } from '../Actions/productsActions';
 import { incrementButton, decrementButton, initializeButton } from '../Actions/carouselActions';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -13,7 +15,7 @@ class App extends React.Component {
         window.uniqueId = 0
         this.props.fetchProducts(window.uniqueId)
         this.props.initializeButton()
-        
+
         window.addEventListener("uniqueId", (event) => {
           this.props.fetchProducts(window.uniqueId)
           this.props.initializeButton()
@@ -72,13 +74,13 @@ class App extends React.Component {
         <div className="Carousel-Container">
             <button className="back-bttn" onClick={
               (event) => this.props.decrementButton(this.props.sponserCarouselPageNum)
-           }>Back</button> 
+           }><FontAwesomeIcon icon={faChevronLeft} className="button-chevron" ></FontAwesomeIcon></button> 
             <div className="Carousel">
               {this.carouselPage()}
             </div>
             <button className="forward-bttn" onClick={
               (event) => this.props.incrementButton(this.props.sponserCarouselPageNum)
-            }>Forward</button>
+            }><FontAwesomeIcon icon={faChevronRight} className="button-chevron" ></FontAwesomeIcon></button>
         </div>
         </React.Fragment>
       
