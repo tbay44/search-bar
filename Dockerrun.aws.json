@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-      "Name": "xenolithes/node-web-app",
+      "Name": "xenolithes/sponser-carousel",
       "Update": "true"
     },
     "Ports": [
