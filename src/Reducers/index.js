@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
+import productsReducer from './productsReducer';
+import carouselButton from './carouselButtonReducer';
 import productReducer from './productReducer';
-import personalCarouselReducer from './personalCarouselReducer'
-import carouselButton from './carouselButton';
+
 
 export default combineReducers({
-    posts: productReducer,
-    personalCarousel: personalCarouselReducer,
-    sponserCarouselPageNum: carouselButton
+    posts: productsReducer,
+    sponserCarouselPageNum: carouselButton,
+    uniqueId: productReducer
 })
