@@ -1,12 +1,12 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-      "Name": "xenolithes/sponser-carousel",
+      "Name": "xenolithes/tbay-search-bar",
       "Update": "true"
     },
     "Ports": [
       {
-        "ContainerPort": "3009"
+        "ContainerPort": "3042"
       }
     ],
     "Logging": "/var/log/nginx"

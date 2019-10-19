@@ -7,5 +7,5 @@ import App from '../Components/App'
 import { Provider } from 'react-redux';
 import store from '../store';
 
-ReactDOM.render(<Provider store = {store}><App /></Provider>,document.querySelector("#sponser-carousel-root"));
+ReactDOM.render(<Provider store = {store}><App /></Provider>,document.querySelector("#search-bar-root"));
 
