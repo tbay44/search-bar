@@ -6,3 +6,46 @@ body{
 body h5{
     text-align: left;
 }
+
+
+.search-container{
+    position: relative
+}
+
+.Search-Bar {
+    margin: 10px 10px 0 10px;
+    padding: 0;
+    width: 500px;
+    height: 25px;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+}
+
+.search-autofill-options{
+    position: absolute;
+    z-index: 1;
+    top: 90%;
+    left: 100px;
+    width: 480px;
+    height: 23px;
+    background-color: white;
+    border-top-style: solid;
+    border-top: 2px;
+    border-top-color: darkslategrey;
+}
+
+.search-option{
+    background-color: white;
+    border: 2px;
+    border-style: solid;
+    border-color: slategrey;
+}
+
+#Search-Submit {
+    height: 32px;
+    width: 75px;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+}

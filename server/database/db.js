@@ -19,19 +19,20 @@ const client = new Client({
 
 client.connect()
 client.query('SELECT * FROM product WHERE id = 1;', (err, res) => {
+  console.log(res.rows)
 })
 
-function getRangeProducts (lowerId, upperId, callback) {
-  let queryString = `SELECT * FROM product WHERE id BETWEEN ${lowerId} AND ${upperId}`
+function getOptions (currentSearchInput, callback) {
+  let queryString = `SELECT * FROM product WHERE product_name ~* '^${currentSearchInput}.*' ; `
   client.query(queryString, (error, products) => {
-    if(error) {
+    if(error){
       callback(error)
     }else{
-      callback(null, products.rows);
+      callback(null, products.rows)
     }
   })
 }
 
 module.exports = {
-  getRangeProducts
+  getOptions
 }
