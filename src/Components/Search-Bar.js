@@ -1,9 +1,9 @@
 import React from 'react'
 import Option from './Search-Options'
-import {currentSearchString, resetSelection} from '../Actions/searchActions'
-import {connect} from 'react-redux'
+import {keyDownActiveOption, keyUpActiveOption, keySubmission} from '../InterfaceFunc/Autofill';
+import {currentSearchString, resetSelection} from '../Actions/searchActions';
+import {connect} from 'react-redux';
 
-// var options = [{id: 1, name:'this'},{id: 2, name:'this'}, {id: 3, name:'this'}]
 const SearchBar = (props) => {
     return ( 
         <div className="search-container">
@@ -11,7 +11,7 @@ const SearchBar = (props) => {
             className="Search-Bar"
             id="Search-Bar-Id"
             type="search" 
-            placeholder="Search Products Here"
+            placeholder="Search for anything"
             onChange={
             () => { 
                 let currentStringVal = document.getElementById("Search-Bar-Id").value
@@ -21,9 +21,24 @@ const SearchBar = (props) => {
                     props.resetSelection()
                 }
             }
-            }></input>
+            }
+            onKeyDown={ (e) => 
+                {
+                    if(e.keyCode === 40){
+                        keyDownActiveOption(props.options)
+                    }else if(e.keyCode === 38){
+                        keyUpActiveOption(props.options)
+                    }else if(e.keyCode === 13) {
+                        keySubmission(props.options);
+                        props.resetSelection();
+                    }
+                }
+            }
+             >
+            </input>
             <button id="Search-Submit"> Search </button>
-            { props.options.length === 0 ? "" :
+            {
+                props.options.length === 0 ? "" :
                 <div className="search-autofill-options">
                  {props.options.map(option => { return <Option key={option.id} id={option.id} name={option.product_name}/>})}
                 </div>

@@ -49,3 +49,8 @@ body h5{
     border-color: black;
     border-style: solid;
 }
+
+.active {
+    background-color: blue;
+    color: white;
+}
