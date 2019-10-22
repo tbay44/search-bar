@@ -1,7 +1,10 @@
 import { combineReducers } from 'redux';
 import uniqueIdReducer from './uniqueIdReducer';
-
+import searchReducer from './searchReducer'
+import categoryReducer from './categoryReducer';
 
 export default combineReducers({
-    uniqueId: uniqueIdReducer
+    options: searchReducer,
+    uniqueId: uniqueIdReducer,
+    categories: categoryReducer
 })

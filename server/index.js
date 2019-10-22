@@ -18,6 +18,17 @@ app.use(express.static(SEARCH_BAR_DIST_DIR));
 app.get('/', (req, res) =>{
     res.send(SEARCH_BAR_HTML_FILE);
 });
+
+app.post('/autocomplete', (req, res) => {
+    connection.getOptions(req.body, (products) => {
+        res.send(products)
+    })
+})
+
+app.get('/categories', (req, res) =>
+    connection.getCategories((categories) => {
+        res.send(categories)
+    }))
 app.listen(port, function () {
     console.log('App listening on port: ' + port);
 });

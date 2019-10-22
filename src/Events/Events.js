@@ -1,10 +1,12 @@
-export const uniqueId = new CustomEvent(
+const uniqueId = new CustomEvent(
     "uniqueId",{
         detail: {
           uniqueId: 'changed'
         }
       }
 )
+
+module.exports = uniqueId
 
 
 
