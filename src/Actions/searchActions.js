@@ -3,7 +3,7 @@ import {CURRENT_SEARCH_STRING, RESET_SEARCH} from './types';
 
 export function currentSearchString (string, category_id = 0){
     return function (dispatch)  {
-        fetch('/autocomplete', {
+        fetch('http://tbay-search-bar.us-east-2.elasticbeanstalk.com/autocomplete', {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
