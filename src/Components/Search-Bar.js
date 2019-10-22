@@ -16,7 +16,7 @@ const SearchBar = (props) => {
             () => { 
                 let currentStringVal = document.getElementById("Search-Bar-Id").value
                 if(currentStringVal !== '' ){
-                    props.currentSearchString(currentStringVal) 
+                    props.currentSearchString(currentStringVal, props.currentSelection.category_id) 
                 }else if(currentStringVal === ''){
                     props.resetSelection()
                 }
@@ -48,7 +48,8 @@ const SearchBar = (props) => {
 }
 
 const mapStateToProps = state => ({
-    options: state.options.products
+    options: state.options.products,
+    currentSelection: state.categories.currentSelection
 })
 
 

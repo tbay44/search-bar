@@ -1,4 +1,5 @@
 const {Pool, Client} = require("pg");
+require('locus')
 
 const pool = new Pool({
   user: "student",
@@ -23,16 +24,32 @@ client.query('SELECT * FROM product WHERE id = 1;', (err, res) => {
 })
 
 function getOptions (currentSearchInput, callback) {
-  let queryString = `SELECT * FROM product WHERE product_name ~* '^${currentSearchInput}.*' ; `
+  let queryString = 
+  currentSearchInput.category_id === 0 ? 
+  `SELECT * FROM product WHERE product_name ~* '^${currentSearchInput.search}.*';`:
+  `SELECT * FROM product WHERE category = ${currentSearchInput.category_id} AND product_name ~* '^${currentSearchInput.search}.*';`;
+
   client.query(queryString, (error, products) => {
     if(error){
       callback(error)
     }else{
-      callback(null, products.rows)
+      callback(products.rows)
+    }
+  })
+}
+
+function getCategories (callback) {
+  let queryString = "SELECT * FROM category;"
+  client.query(queryString, (error, categories) => {
+    if(error){
+      callback(error)
+    }else{
+      callback(categories.rows)
     }
   })
 }
 
 module.exports = {
-  getOptions
+  getOptions,
+  getCategories
 }

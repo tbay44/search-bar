@@ -20,11 +20,15 @@ app.get('/', (req, res) =>{
 });
 
 app.post('/autocomplete', (req, res) => {
-    connection.getOptions(req.body.search, (error, products) => {
-        console.log(products)
+    connection.getOptions(req.body, (products) => {
         res.send(products)
     })
 })
+
+app.get('/categories', (req, res) =>
+    connection.getCategories((categories) => {
+        res.send(categories)
+    }))
 app.listen(port, function () {
     console.log('App listening on port: ' + port);
 });
