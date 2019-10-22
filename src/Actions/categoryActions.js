@@ -2,7 +2,7 @@ import { CREATE_SELECTION , CURRENT_SELECTION} from './types';
 
 export function createCategorySelections () {
     return function (dispatch) {
-        fetch('/categories')
+        fetch('http://tbay-search-bar.us-east-2.elasticbeanstalk.com/categories')
             .then(data => data.json())
             .then(selections => {
                 return dispatch({
