@@ -96,7 +96,7 @@
     border-style: solid;
 }
 
-.active {
+.active-autofill {
     background-color: lightgray;
     color: black;
 }

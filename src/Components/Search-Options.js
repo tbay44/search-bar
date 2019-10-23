@@ -8,10 +8,10 @@ const Option = (props) => {
         id={'searchBar'+props.id}
         className="search-option"
         onMouseOver={() =>{
-            document.getElementById('searchBar'+props.id).classList.add("active")
+            document.getElementById('searchBar'+props.id).classList.add("active-autofill")
         }}
         onMouseLeave={() =>{
-            document.getElementById('searchBar'+props.id).classList.remove("active")
+            document.getElementById('searchBar'+props.id).classList.remove("active-autofill")
         }}
         onClick={()=>{
             window.uniqueId = props.id;
