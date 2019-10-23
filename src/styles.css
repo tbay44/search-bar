@@ -1,10 +1,4 @@
-body{
-    text-align: center;
-    background-color: #f8f8f8;
-}
-body h5{
-    text-align: left;
-}
+
 .top-header{
     background-color: white;
     height: 45px;
@@ -102,7 +96,7 @@ body h5{
     border-style: solid;
 }
 
-.active {
+.active-autofill {
     background-color: lightgray;
     color: black;
 }
