@@ -1,9 +1,11 @@
 import React from "react";
 import SearchBar from './Search-Bar'
 import TopHeader from './TopHeader'
+import LowerHeader from './LowerHeader'
 import CategoryOption from './Category-Options';
 import { createCategorySelections, changeCurrentSelection } from '../Actions/categoryActions';
 import { connect } from 'react-redux'
+
 
 class App extends React.Component {    
     componentDidMount(){
@@ -15,7 +17,7 @@ class App extends React.Component {
             <React.Fragment>
                 <TopHeader />
                 <div className="header-container">
-                    <img id="tbay-img" src="https://tbay44.s3-us-west-1.amazonaws.com/tbay.jpeg"/>
+                    <img id="tbay-img" src="https://tbay44.s3-us-west-1.amazonaws.com/tbay.png"/>
                     <select className="header-category-select" onChange={
                         (event) => 
                         this.props.changeCurrentSelection(
@@ -33,6 +35,7 @@ class App extends React.Component {
                     </select>
                     <SearchBar />
                 </div>
+                <LowerHeader />
             </React.Fragment>
         )
     }

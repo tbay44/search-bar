@@ -1,14 +1,18 @@
+body{
+    background-color: #f8f8f8;
+}
 
 .top-header{
     background-color: white;
-    height: 45px;
-    font-size: 10px;
+    height: 30px;
+    font-size: 12px;
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr 4fr 1fr 1fr 1fr 1fr;
 }
 
 .top-header p{
-    padding: auto;
+    margin: auto 0 auto auto;
+    padding-right: 10%;
     cursor: pointer;
     border-style: solid;
     border-width: 0 1px 0 0;
@@ -23,8 +27,9 @@
 
 
 .header-container{
+    background-color: F8F8F8;
     display: grid;
-    margin-top: 10px;
+    margin-top: 20px;
     grid-template-columns: .3fr .3fr 6fr ;
     grid-template-rows: 65px;
 
@@ -43,13 +48,14 @@
 
 .header-category-select{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: white;
+    background-color: #F8F8F8;
     font-size: 16px;
     border-width: 0px;
     height:65px;
     white-space: pre-wrap;
 }
 .search-container{
+ background-color: #F8F8F8;
  margin: auto 0;
  display: grid;
  align-content: center;
@@ -99,4 +105,91 @@
 .active-autofill {
     background-color: lightgray;
     color: black;
+}
+
+.lower-header-container{
+    margin-top: 10px;
+    font-size: 12px;
+    background-color: #f8f8f8;
+    display: grid;
+    grid-template-columns:  .5fr .5fr .5fr .5fr .5fr .5fr .5fr .5fr .5fr;
+    grid-template-rows: 20px 20px
+}
+
+.lower-header-container p{
+    text-align: right;
+    margin: auto 10px auto auto
+}
+
+.lower-header-category-container{
+    
+    margin-top: 4px;
+    grid-column-start: 3;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.lower-header-category-container p{
+    text-align: left;
+}
+
+
+.header-share-container{
+    padding: auto;
+    margin: auto 0;
+    text-align: right;
+    grid-column-start: 8;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    border: solid;
+    border-width: 0 2px 0 0;
+    border-color: lightgray;
+}
+
+#add-to-watch{
+    cursor: pointer;
+    margin: auto 10px;
+    color: blue;
+    text-align: left;
+    grid-column-start: 9;
+    grid-column-end: 10;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+
+#share-buttons img{
+    width: 35px;
+    padding: 5px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0;
+    display: inline;
+}
+
+.header-envelope{
+    cursor: pointer;
+    padding: 2px;
+    color: lightslategray;
+    font-size: 22px;
+}
+.twitter{
+    cursor: pointer;
+    padding: 2px;
+    color: #00acee;
+    Font-size: 22px;
+    }
+.facebook{
+    cursor: pointer;
+    padding: 2px;
+    color: #3b5998;
+    font-size: 22px;
+}
+.pinterest{
+    cursor: pointer;
+    padding: 2px;
+    color: #c8232c;
+    font-size: 22px;
 }

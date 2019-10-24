@@ -23,6 +23,19 @@ client.query('SELECT * FROM product WHERE id = 1;', (err, res) => {
   console.log(res.rows)
 })
 
+function getProduct(id, callback){
+  let queryString = `SELECT * From product WHERE id = ${id};`;
+  client.query(queryString, (error, products) => {
+    console.log(products)
+    if(error){
+      callback(error)
+    }else{
+      callback(products.rows[0])
+    }
+  })
+
+}
+
 function getOptions (currentSearchInput, callback) {
   let queryString = 
   currentSearchInput.category_id === 0 ? 
@@ -51,5 +64,6 @@ function getCategories (callback) {
 
 module.exports = {
   getOptions,
-  getCategories
+  getCategories,
+  getProduct
 }

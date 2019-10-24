@@ -22,6 +22,16 @@ app.get('/', (req, res) =>{
     res.send(SEARCH_BAR_HTML_FILE);
 });
 
+app.get('/add', (req, res) => {
+    connection.getProduct(req.query.id, (error, Product) => {
+        if(error) {
+            res.send(error)
+        }else{
+            res.send(Product)
+        }
+    })
+})
+
 app.post('/autocomplete', (req, res) => {
     connection.getOptions(req.body, (products) => {
         res.send(products)
