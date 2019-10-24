@@ -1,7 +1,8 @@
 import { UPDATE_UNIQUE_ID } from '../Actions/types';
 
 const initialState = {
-    id: 0
+    currentId: [],
+    currentCategory: 0
 }
 
 export default function ( state = initialState, action){
@@ -9,7 +10,8 @@ export default function ( state = initialState, action){
         case UPDATE_UNIQUE_ID:
             return {
                 ...state,
-                id: action.payload
+                currentId: action.payload.id,
+                currentCategory: action.payload.category
             }
         default: 
         return state;
